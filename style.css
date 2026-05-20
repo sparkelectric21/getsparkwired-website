@@ -237,3 +237,21 @@ display:none;
 }
 
 }
+.floating-call{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#0d6efd;
+color:white;
+padding:16px 22px;
+border-radius:999px;
+font-weight:700;
+text-decoration:none;
+box-shadow:0 0 25px rgba(13,110,253,.45);
+z-index:9999;
+transition:.3s;
+}
+
+.floating-call:hover{
+transform:scale(1.05);
+}
