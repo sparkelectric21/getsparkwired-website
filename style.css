@@ -383,3 +383,20 @@ line-height:1.7;
 transform:translateY(-4px) scale(1.02);
 box-shadow:0 0 25px rgba(13,110,253,.45);
 }
+.footer-socials{
+display:flex;
+justify-content:center;
+gap:30px;
+margin-bottom:20px;
+}
+
+.footer-socials a{
+color:white;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+.footer-socials a:hover{
+color:#0d6efd;
+}
