@@ -279,3 +279,48 @@ margin-top:20px;
 }
 
 }
+.quote-form{
+max-width:800px;
+margin:60px auto 0;
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.quote-form input,
+.quote-form textarea{
+background:#081423;
+border:1px solid rgba(13,110,253,.3);
+padding:18px;
+border-radius:12px;
+color:white;
+font-size:16px;
+font-family:'Montserrat',sans-serif;
+}
+
+.quote-form textarea{
+min-height:160px;
+resize:vertical;
+}
+
+.quote-form button{
+background:#0d6efd;
+border:none;
+padding:18px;
+border-radius:12px;
+color:white;
+font-size:18px;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
+}
+
+.quote-form button:hover{
+transform:translateY(-3px);
+box-shadow:0 0 20px rgba(13,110,253,.4);
+}
+
+.contact-box a{
+color:white;
+text-decoration:none;
+}
