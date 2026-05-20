@@ -29,7 +29,8 @@ border-bottom:1px solid rgba(13,110,253,.25);
 }
 
 .nav-logo{
-height:72px;
+height:88px;
+filter:drop-shadow(0 0 12px rgba(13,110,253,.35));
 }
 
 nav{
@@ -78,7 +79,9 @@ max-width:650px;
 }
 
 .hero-left h1{
-font-size:76px;
+font-size:68px;
+max-width:700px;
+text-shadow:0 0 25px rgba(13,110,253,.18);;
 line-height:.95;
 font-weight:800;
 margin-bottom:25px;
@@ -134,7 +137,14 @@ align-items:center;
 width:100%;
 max-width:750px;
 border-radius:24px;
-box-shadow:0 0 40px rgba(13,110,253,.25);
+box-shadow:
+0 0 20px rgba(13,110,253,.15),
+0 0 50px rgba(13,110,253,.25);
+transition:.4s;
+}
+
+.hero-image:hover{
+transform:translateY(-4px);
 }
 
 .services-section{
@@ -157,10 +167,11 @@ gap:25px;
 
 .service-card{
 background:#081423;
-padding:40px;
-border-radius:20px;
+padding:42px;
+border-radius:26px;
 border:1px solid rgba(13,110,253,.25);
-transition:.3s;
+transition:.35s;
+backdrop-filter:blur(10px);
 }
 
 .service-card:hover{
@@ -364,4 +375,11 @@ margin-bottom:15px;
 .why-card p{
 color:#d0d0d0;
 line-height:1.7;
+}
+.primary-btn:hover,
+.secondary-btn:hover,
+.call-button:hover,
+.floating-call:hover{
+transform:translateY(-4px) scale(1.02);
+box-shadow:0 0 25px rgba(13,110,253,.45);
 }
