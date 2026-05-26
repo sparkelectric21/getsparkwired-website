@@ -1,344 +1,609 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spark Electric | Low Voltage & Smart Home Installation</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Spark Electric provides professional low voltage, smart home, networking, TV mounting, landscape lighting, and structured cabling services throughout Mobile & Baldwin County."
+  />
 
-<title>Spark Electric | Low Voltage & Smart Home Installation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-<meta name="description" content="Spark Electric provides low-voltage, smart home, TV mounting, networking, landscape lighting, and security camera installation services throughout Mobile & Baldwin County.">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
 
-<link rel="icon" type="image/png" href="favicon.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<link rel="stylesheet" href="style.css">
+    html {
+      scroll-behavior: smooth;
+    }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #05070b;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
+    .container {
+      width: 90%;
+      max-width: 1300px;
+      margin: auto;
+    }
+
+    /* NAVBAR */
+
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 999;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #1d7cff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      color: #d7d7d7;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #1d7cff;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.8)),
+        url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=2070&auto=format&fit=crop')
+        center/cover no-repeat;
+      padding-top: 120px;
+    }
+
+    .hero-content {
+      max-width: 750px;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      line-height: 1.05;
+      margin-bottom: 25px;
+      font-weight: 800;
+    }
+
+    .hero h1 span {
+      color: #1d7cff;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: #d0d0d0;
+      margin-bottom: 35px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #1d7cff;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #0062e3;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 110px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .section-title h2 {
+      font-size: 2.7rem;
+      margin-bottom: 15px;
+    }
+
+    .section-title p {
+      color: #a9a9a9;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.7;
+    }
+
+    /* SERVICES */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .service-card {
+      background: #0d1118;
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 35px;
+      border-radius: 18px;
+      transition: 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: #1d7cff;
+    }
+
+    .service-card h3 {
+      margin-bottom: 16px;
+      font-size: 1.25rem;
+      color: #ffffff;
+    }
+
+    .service-card p {
+      color: #b7b7b7;
+      line-height: 1.7;
+    }
+
+    /* ABOUT */
+
+    .about {
+      background: #0a0d13;
+    }
+
+    .about-content {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .about-content p {
+      color: #c7c7c7;
+      line-height: 1.9;
+      margin-bottom: 25px;
+      font-size: 1.05rem;
+    }
+
+    /* WHY US */
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 50px;
+    }
+
+    .why-card {
+      background: #0d1118;
+      border-radius: 18px;
+      padding: 30px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .why-card h3 {
+      margin-bottom: 15px;
+      color: #1d7cff;
+    }
+
+    .why-card p {
+      color: #bcbcbc;
+      line-height: 1.7;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      background: #0a0d13;
+    }
+
+    .contact-form {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #111722;
+      color: white;
+      font-size: 1rem;
+    }
+
+    textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #1d7cff;
+    }
+
+    button {
+      border: none;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 35px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      color: #888;
+      font-size: 0.95rem;
+    }
+
+    /* MOBILE */
+
+    @media(max-width: 768px) {
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header class="navbar">
+  <!-- NAV -->
 
-<div class="logo-area">
-<img src="logo.png" class="nav-logo">
-</div>
+  <nav>
+    <div class="container nav-container">
 
-<nav>
-<a href="#services">Services</a>
-<a href="#process">Process</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-</nav>
+      <div class="logo">
+        SPARK <span>ELECTRIC</span>
+      </div>
 
-<a href="#contact" class="call-button">
-Free Estimate
-</a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#why">Why Choose Us</a>
+        <a href="#contact">Contact</a>
+      </div>
 
-</header>
+    </div>
+  </nav>
 
-<section class="hero">
+  <!-- HERO -->
 
-<div class="hero-left">
+  <section class="hero">
 
-<h1>
-LOW VOLTAGE &
-SMART HOME
-INSTALLATION
-</h1>
+    <div class="container hero-content">
 
-<p>
-Professional smart home, security camera, TV mounting,
-networking, and outdoor lighting installation services
-serving Mobile & Baldwin County.
-</p>
+      <h1>
+        Low Voltage & Smart Home
+        <span>Installation Services</span>
+      </h1>
 
-<div class="hero-buttons">
+      <p>
+        Professional smart home, networking, TV mounting, landscape lighting,
+        and low-voltage installation services for residential and small business
+        customers throughout Mobile & Baldwin County.
+      </p>
 
-<a href="#contact" class="primary-btn">
-Get Free Estimate
-</a>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary">
+          Get Estimate
+        </a>
 
-<a href="#services" class="secondary-btn">
-View Services
-</a>
+        <a href="tel:2516209769" class="btn btn-secondary">
+          Call Now
+        </a>
+      </div>
 
-</div>
+    </div>
 
-<div class="trust-badges">
+  </section>
 
-<div class="badge">
-✔ Fully Insured
-</div>
+  <!-- SERVICES -->
 
-<div class="badge">
-⚡ Locally Owned
-</div>
+  <section id="services">
 
-<div class="badge">
-📍 Mobile & Baldwin County
-</div>
+    <div class="container">
 
-<div class="badge">
-💬 Fast Quotes
-</div>
+      <div class="section-title">
+        <h2>Services</h2>
 
-</div>
+        <p>
+          Professional low-voltage and smart home installation services
+          tailored to modern residential and small business needs.
+        </p>
+      </div>
 
-</div>
+      <div class="services-grid">
 
-<div class="hero-right">
+        <div class="service-card">
+          <h3>Smart Home Installation</h3>
 
-<img src="banner.jpg" class="hero-image">
+          <p>
+            Smart switches, thermostats, doorbells, device setup,
+            and home automation integration.
+          </p>
+        </div>
 
-</div>
+        <div class="service-card">
+          <h3>TV Mounting & Media Setup</h3>
 
-</section>
+          <p>
+            Clean TV mounting, wire concealment,
+            soundbar installation, and media center setup.
+          </p>
+        </div>
 
-<section id="services" class="services-section">
+        <div class="service-card">
+          <h3>Networking & WiFi</h3>
 
-<h2>OUR SERVICES</h2>
+          <p>
+            WiFi troubleshooting, mesh systems,
+            ethernet drops, and structured cabling solutions.
+          </p>
+        </div>
 
-<div class="services-grid">
+        <div class="service-card">
+          <h3>Landscape Lighting</h3>
 
-<div class="service-card">
-<div class="service-icon">💡</div>
-<h3>Landscape Lighting</h3>
-<p>Custom outdoor and low-voltage lighting installation.</p>
-</div>
+          <p>
+            Professional low-voltage landscape lighting
+            installation and troubleshooting.
+          </p>
+        </div>
 
-<div class="service-card">
-<div class="service-icon">📹</div>
-<h3>Security Cameras</h3>
-<p>Professional smart surveillance installation services.</p>
-</div>
+        <div class="service-card">
+          <h3>Audio / Video Installation</h3>
 
-<div class="service-card">
-<div class="service-icon">📺</div>
-<h3>TV Mounting</h3>
-<p>Clean TV mounting and cable concealment solutions.</p>
-</div>
+          <p>
+            Soundbars, home theater setup,
+            media devices, and audio/video wiring solutions.
+          </p>
+        </div>
 
-<div class="service-card">
-<div class="service-icon">🏠</div>
-<h3>Smart Home Devices</h3>
-<p>Doorbells, thermostats, automation, and smart setup.</p>
-</div>
-
-<div class="service-card">
-<div class="service-icon">📶</div>
-<h3>WiFi & Networking</h3>
-<p>Router installation and wireless network optimization.</p>
-</div>
-
-<div class="service-card">
-<div class="service-icon">⚡</div>
-<h3>Low Voltage Wiring</h3>
-<p>Structured low-voltage installs for homes and businesses.</p>
-</div>
+        <div class="service-card">
+          <h3>Low Voltage Wiring</h3>
 
-</div>
+          <p>
+            Structured cabling, device wiring,
+            smart home connectivity, and low-voltage infrastructure.
+          </p>
+        </div>
 
-</section>
-
-<section id="process" class="process-section">
+      </div>
 
-<h2>HOW IT WORKS</h2>
+    </div>
 
-<div class="process-grid">
+  </section>
 
-<div class="process-card">
-<div class="process-number">1</div>
-<h3>Contact Us</h3>
-<p>
-Call, text, or submit a quote request for your project.
-</p>
-</div>
+  <!-- ABOUT -->
 
-<div class="process-card">
-<div class="process-number">2</div>
-<h3>Free Estimate</h3>
-<p>
-We discuss your needs, layout, and provide pricing.
-</p>
-</div>
+  <section class="about" id="about">
 
-<div class="process-card">
-<div class="process-number">3</div>
-<h3>Professional Installation</h3>
-<p>
-Clean, reliable installation with attention to detail.
-</p>
-</div>
+    <div class="container">
 
-</div>
+      <div class="section-title">
+        <h2>About Spark Electric</h2>
+      </div>
 
-</section>
+      <div class="about-content">
 
-<section class="why-section">
+        <p>
+          Spark Electrical Services, LLC DBA Spark Electric is a fully insured
+          low-voltage and smart home installation company owned and operated
+          by William Dickens.
+        </p>
 
-<h2>WHY CHOOSE SPARK ELECTRIC</h2>
+        <p>
+          We specialize in clean, professional installations for residential
+          and small business customers throughout Mobile & Baldwin County.
+          From networking and smart home integration to TV mounting,
+          landscape lighting, and low-voltage wiring, Spark Electric focuses
+          on quality workmanship and modern technology solutions tailored
+          to your needs.
+        </p>
 
-<div class="why-grid">
+      </div>
 
-<div class="why-card">
-<h3>Fully Insured</h3>
-<p>
-Professional, protected, and reliable service you can trust.
-</p>
-</div>
-
-<div class="why-card">
-<h3>Locally Owned</h3>
-<p>
-Serving homeowners and businesses throughout Mobile & Baldwin County.
-</p>
-</div>
+    </div>
 
-<div class="why-card">
-<h3>Clean Installations</h3>
-<p>
-Attention to detail with clean wiring, cable management, and setup.
-</p>
-</div>
-
-<div class="why-card">
-<h3>Fast Communication</h3>
-<p>
-Quick responses, free estimates, and dependable scheduling.
-</p>
-</div>
+  </section>
 
-</div>
+  <!-- WHY US -->
 
-</section>
+  <section id="why">
 
-<section id="about" class="about-section">
+    <div class="container">
 
-<h2>ABOUT SPARK ELECTRIC</h2>
+      <div class="section-title">
+        <h2>Why Choose Spark Electric</h2>
 
-<p>
-Spark Electric specializes in modern low-voltage and smart home
-installation services for residential and small business customers
-throughout Mobile & Baldwin County.
-</p>
+        <p>
+          Professional service, clean installations,
+          honest communication, and reliable solutions you can trust.
+        </p>
+      </div>
 
-<p>
-From security cameras and networking to TV mounting and landscape
-lighting, we focus on clean, professional installations with
-reliable customer service from start to finish.
-</p>
+      <div class="why-grid">
 
-</section>
+        <div class="why-card">
+          <h3>Professional Installations</h3>
 
-<section class="service-area-section">
+          <p>
+            Clean workmanship and attention to detail on every project.
+          </p>
+        </div>
 
-<h2>PROUDLY SERVING</h2>
+        <div class="why-card">
+          <h3>Fully Insured</h3>
 
-<p>
-Mobile, Daphne, Fairhope, Spanish Fort, Foley,
-Saraland, Gulf Shores, Orange Beach,
-and surrounding areas.
-</p>
+          <p>
+            Peace of mind knowing your project is handled professionally.
+          </p>
+        </div>
 
-</section>
+        <div class="why-card">
+          <h3>Modern Solutions</h3>
 
-<section id="contact" class="contact-section">
+          <p>
+            Smart home and low-voltage technology tailored to your needs.
+          </p>
+        </div>
 
-<h2>CONTACT SPARK ELECTRIC</h2>
+        <div class="why-card">
+          <h3>Local Service</h3>
 
-<div class="contact-grid">
+          <p>
+            Proudly serving Mobile & Baldwin County with reliable support.
+          </p>
+        </div>
 
-<div class="contact-box">
-<h3>Phone</h3>
-<p>
-<a href="tel:2516209769">251-620-9769</a>
-</p>
-</div>
+      </div>
 
-<div class="contact-box">
-<h3>Email</h3>
-<p>
-<a href="mailto:info@getsparkwired.com">
-info@getsparkwired.com
-</a>
-</p>
-</div>
+    </div>
 
-<div class="contact-box">
-<h3>Service Area</h3>
-<p>Mobile & Baldwin County</p>
-</div>
+  </section>
 
-</div>
+  <!-- CONTACT -->
 
-<form class="quote-form"
-action="https://formsubmit.co/info@getsparkwired.com"
-method="POST">
+  <section class="contact" id="contact">
 
-<input type="hidden" name="_captcha" value="false">
+    <div class="container">
 
-<input type="text"
-name="name"
-placeholder="Your Name"
-required>
+      <div class="section-title">
+        <h2>Request a Free Estimate</h2>
 
-<input type="tel"
-name="phone"
-placeholder="Phone Number"
-required>
+        <p>
+          Contact Spark Electric today for professional low-voltage
+          and smart home installation services.
+        </p>
+      </div>
 
-<input type="email"
-name="email"
-placeholder="Email Address"
-required>
+      <form
+        class="contact-form"
+        action="https://formsubmit.co/info@getsparkwired.com"
+        method="POST"
+      >
 
-<textarea
-name="message"
-placeholder="Tell us about your project..."
-required></textarea>
+        <input type="hidden" name="_captcha" value="false">
 
-<button type="submit">
-Request Free Estimate
-</button>
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Your Name" required />
+        </div>
 
-</form>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Your Email" required />
+        </div>
 
-</section>
+        <div class="form-group">
+          <input type="tel" name="phone" placeholder="Phone Number" />
+        </div>
 
-<footer>
+        <div class="form-group">
+          <textarea
+            name="message"
+            placeholder="Tell us about your project..."
+            required
+          ></textarea>
+        </div>
 
-<div class="footer-socials">
+        <button type="submit" class="btn btn-primary">
+          Submit Request
+        </button>
 
-<a href="https://facebook.com/sparkelectric21" target="_blank">
-Facebook
-</a>
+      </form>
 
-<a href="https://x.com/sprkelectric21" target="_blank">
-X / Twitter
-</a>
+    </div>
 
-</div>
+  </section>
 
-<p>
-© 2026 Spark Electrical Services, LLC DBA Spark Electric
-</p>
+  <!-- FOOTER -->
 
-<p>
-www.getsparkwired.com
-</p>
-
-</footer>
-
-<a href="tel:2516209769" class="floating-call">
-📞 Call Now
-</a>
-
-<script src="script.js"></script>
+  <footer>
+    © 2026 Spark Electrical Services, LLC DBA Spark Electric.
+    All Rights Reserved.
+  </footer>
 
 </body>
 </html>
