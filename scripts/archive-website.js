@@ -4,16 +4,8 @@ const { chromium } = require("playwright");
 
 const BASE_URL = "http://127.0.0.1:8001";
 const ARCHIVE_LABEL = "SparkOS Redesign";
-const DEFAULT_ARCHIVE_ROOT = path.join(
-  process.env.HOME,
-  "Library",
-  "Mobile Documents",
-  "com~apple~CloudDocs",
-  "_SPARK ELECTRIC",
-  "_Business Documents",
-  "Website",
-  "Website Archives"
-);
+const DEFAULT_ARCHIVE_ROOT =
+  "/Users/williamdickens/Library/Mobile Documents/com~apple~CloudDocs/_SPARK ELECTIC/_Buisness Documents/Technology & Infrastructure/Website/Website Archives";
 
 const pages = [
   { page: "/", name: "home" },
