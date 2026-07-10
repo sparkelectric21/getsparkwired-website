@@ -205,9 +205,9 @@ a{
   position:absolute;
   inset:0;
   background:
-    linear-gradient(90deg,rgba(6,16,29,.96) 0%,rgba(6,16,29,.76) 48%,rgba(6,16,29,.22) 100%),
-    url("hero-home.jpg") center/cover no-repeat;
-  opacity:.74;
+    linear-gradient(90deg,rgba(6,16,29,.98) 0%,rgba(6,16,29,.82) 50%,rgba(6,16,29,.38) 100%),
+    url("hero-home.jpg") 44% center/cover no-repeat;
+  opacity:.68;
 }
 
 .hero-inner{
@@ -995,8 +995,8 @@ h3{
 
   .hero::before{
     background:
-      linear-gradient(180deg,rgba(6,16,29,.94),rgba(6,16,29,.78)),
-      url("hero-home.jpg") center/cover no-repeat;
+      linear-gradient(180deg,rgba(6,16,29,.96),rgba(6,16,29,.84)),
+      url("hero-home.jpg") 38% center/cover no-repeat;
   }
 
   .section,

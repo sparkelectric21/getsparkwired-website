@@ -9,9 +9,14 @@ if (navToggle && siteNav) {
   });
 }
 
-const currentPage = window.location.pathname.split("/").pop() || "index.html";
+const normalizePath = (path) => {
+  const cleanPath = path.replace(/\/index\.html$/, "/").replace(/\.html$/, "");
+  return cleanPath === "" ? "/" : cleanPath;
+};
+
+const currentPage = normalizePath(window.location.pathname);
 document.querySelectorAll(".site-nav a").forEach((link) => {
-  if (link.getAttribute("href") === currentPage) {
+  if (normalizePath(link.getAttribute("href")) === currentPage) {
     link.setAttribute("aria-current", "page");
   }
 });
