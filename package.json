@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "archive": "node scripts/archive-website.js"
+  },
   "devDependencies": {
     "playwright": "^1.61.1"
   }
