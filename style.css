@@ -470,6 +470,29 @@ h3{
   font-size:17px;
 }
 
+.founder-quote{
+  margin-top:28px;
+  padding:24px;
+  border-left:3px solid var(--warm);
+  border-radius:0 var(--radius) var(--radius) 0;
+  background:#fbfdff;
+}
+
+.founder-quote p{
+  margin-top:0;
+  color:var(--ink);
+  font-size:18px;
+  line-height:1.55;
+}
+
+.founder-attribution{
+  margin-top:16px;
+  display:grid;
+  gap:3px;
+  color:var(--muted);
+  font-size:14px;
+}
+
 .feature-list{
   display:grid;
   gap:16px;
@@ -1061,7 +1084,6 @@ h3{
   }
 
   .floating-call{
-    left:16px;
-    right:16px;
+    display:none;
   }
 }
