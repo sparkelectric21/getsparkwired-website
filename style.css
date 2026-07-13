@@ -16,13 +16,16 @@
   --max:1180px;
 }
 
-.solution-detail { max-width: 920px; }
+.container.solution-detail { max-width: 920px; }
 .solution-problem { margin: 2rem 0 0; padding: 1.5rem 1.75rem; border-left: 4px solid var(--blue); background: var(--mist); color: var(--ink); font-size: clamp(1.2rem, 2vw, 1.55rem); font-weight: 700; }
 .solution-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
 .solution-columns article { background: #fff; border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow); }
 .scope-list { display: grid; gap: .8rem; padding-left: 1.2rem; }
 .scope-note, .source-note { font-size: .88rem; opacity: .78; }
-@media (max-width: 760px) { .solution-columns { grid-template-columns: 1fr; } }
+@media (max-width: 760px) {
+  .solution-columns { grid-template-columns: 1fr; }
+  .solution-columns h2 { font-size: 30px; line-height: 1.08; }
+}
 
 *{
   box-sizing:border-box;
@@ -104,8 +107,8 @@ a{
 
 .brand-subtitle{
   margin-top:5px;
-  color:#a9b7ca;
-  font-size:12px;
+  color:#bbc7d7;
+  font-size:12.5px;
 }
 
 .site-nav{
@@ -728,6 +731,8 @@ h3{
 .contact-methods{
   display:grid;
   gap:16px;
+  grid-template-rows:repeat(3,minmax(0,1fr));
+  align-self:stretch;
 }
 
 .contact-method{
@@ -735,6 +740,9 @@ h3{
   border:1px solid var(--line);
   border-radius:var(--radius);
   background:var(--white);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
 
 .contact-method h2{
@@ -862,7 +870,7 @@ h3{
 
 .footer-grid p,
 .footer-grid li{
-  color:#a9b7ca;
+  color:#b8c4d4;
   font-size:14px;
 }
 
@@ -889,8 +897,8 @@ h3{
   display:flex;
   justify-content:space-between;
   gap:20px;
-  color:#8d9bb0;
-  font-size:13px;
+  color:#a7b4c7;
+  font-size:13.5px;
 }
 
 .footer-verse{
@@ -921,18 +929,18 @@ h3{
 
 .footer-verse-reference{
   margin:0;
-  color:#8d9bb0;
-  font-size:13px;
+  color:#a7b4c7;
+  font-size:13.5px;
   font-weight:700;
 }
 
 .floating-call{
   position:fixed;
-  right:18px;
-  bottom:18px;
+  right:max(18px,calc((100vw - var(--max))/2 - 106px));
+  bottom:24px;
   z-index:40;
-  min-height:50px;
-  padding:0 18px;
+  min-height:44px;
+  padding:0 14px;
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -940,8 +948,26 @@ h3{
   background:var(--blue);
   color:var(--white);
   text-decoration:none;
+  font-size:13px;
   font-weight:850;
   box-shadow:0 18px 38px rgba(24,116,255,.28);
+}
+
+.grid.area-grid{
+  grid-template-columns:repeat(6,minmax(0,1fr));
+}
+
+.area-grid .area-card{
+  grid-column:span 2;
+}
+
+.area-grid .area-card:nth-last-child(2){
+  grid-column:2 / span 2;
+}
+
+.projects-holding{
+  padding-top:72px;
+  padding-bottom:72px;
 }
 
 .reveal{
@@ -975,6 +1001,15 @@ h3{
     grid-template-columns:repeat(2,1fr);
   }
 
+  .grid.area-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .area-grid .area-card,
+  .area-grid .area-card:nth-last-child(2){
+    grid-column:auto;
+  }
+
   .standard-grid{
     grid-template-columns:repeat(2,1fr);
   }
@@ -985,6 +1020,20 @@ h3{
 
   .site-nav a{
     font-size:13px;
+  }
+}
+
+@media(min-width:881px) and (max-width:1360px){
+  .section > .container,
+  .page-hero > .container{
+    width:calc(100% - 144px);
+    margin-left:24px;
+    margin-right:120px;
+  }
+
+  .hero-inner,
+  .cta-inner{
+    padding-right:120px;
   }
 }
 
@@ -1055,6 +1104,10 @@ h3{
     grid-template-columns:1fr;
   }
 
+  .contact-methods{
+    grid-template-rows:auto;
+  }
+
   .quiet-grid{
     grid-template-columns:repeat(2,1fr);
   }
@@ -1070,10 +1123,38 @@ h3{
 
   .footer-grid{
     grid-template-columns:1fr;
+    gap:24px;
   }
 
   .footer-bottom{
     flex-direction:column;
+  }
+
+  .site-footer{
+    padding:40px 20px 22px;
+  }
+
+  .footer-logo{
+    margin-bottom:10px;
+  }
+
+  .footer-grid h2{
+    margin-bottom:8px;
+  }
+
+  .footer-grid ul{
+    gap:6px;
+  }
+
+  .footer-bottom{
+    margin-top:24px;
+    padding-top:18px;
+    gap:8px;
+  }
+
+  .footer-verse{
+    margin-top:16px;
+    padding-top:16px;
   }
 }
 
@@ -1088,7 +1169,8 @@ h3{
 
   h1,
   .page-title{
-    font-size:42px;
+    font-size:38px;
+    line-height:1;
   }
 
   .grid.three,
@@ -1122,6 +1204,11 @@ h3{
   .card,
   .standard-item{
     min-height:auto;
+  }
+
+  .projects-holding{
+    padding-top:56px;
+    padding-bottom:56px;
   }
 
   .floating-call{
