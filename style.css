@@ -16,6 +16,14 @@
   --max:1180px;
 }
 
+.solution-detail { max-width: 920px; }
+.solution-problem { margin: 2rem 0 0; padding: 1.5rem 1.75rem; border-left: 4px solid var(--blue); background: var(--mist); color: var(--ink); font-size: clamp(1.2rem, 2vw, 1.55rem); font-weight: 700; }
+.solution-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+.solution-columns article { background: #fff; border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow); }
+.scope-list { display: grid; gap: .8rem; padding-left: 1.2rem; }
+.scope-note, .source-note { font-size: .88rem; opacity: .78; }
+@media (max-width: 760px) { .solution-columns { grid-template-columns: 1fr; } }
+
 *{
   box-sizing:border-box;
   margin:0;
