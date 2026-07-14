@@ -14,8 +14,18 @@ const normalizePath = (path) => {
   return cleanPath === "" ? "/" : cleanPath;
 };
 
-const currentPage = normalizePath(window.location.pathname);
+const solutionPaths = new Set([
+  "/spark-mount",
+  "/spark-connect",
+  "/spark-home",
+  "/spark-illuminate",
+  "/spark-wire",
+  "/spark-restore",
+]);
+const currentPath = normalizePath(window.location.pathname);
+const currentPage = solutionPaths.has(currentPath) ? "/services" : currentPath;
 document.querySelectorAll(".site-nav a").forEach((link) => {
+  link.removeAttribute("aria-current");
   if (normalizePath(link.getAttribute("href")) === currentPage) {
     link.setAttribute("aria-current", "page");
   }
