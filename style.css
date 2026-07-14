@@ -113,6 +113,12 @@ a{
   font-size:12.5px;
 }
 
+@media(min-width:881px){
+  .brand{
+    flex:0 0 285px;
+  }
+}
+
 .site-nav{
   display:flex;
   flex:1;
