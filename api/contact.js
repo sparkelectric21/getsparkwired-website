@@ -100,7 +100,7 @@ async function deliver(data, req) {
   const response = await fetch(`https://api.cloudflare.com/client/v4/accounts/${encodeURIComponent(CLOUDFLARE_ACCOUNT_ID)}/email/sending/send`, {
     method: "POST",
     headers: { Authorization: `Bearer ${CLOUDFLARE_EMAIL_API_TOKEN}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ to: CONTACT_TO_EMAIL, from: CONTACT_FROM_EMAIL, replyTo: data.email, ...content }),
+    body: JSON.stringify({ to: CONTACT_TO_EMAIL, from: CONTACT_FROM_EMAIL, reply_to: data.email, ...content }),
   });
   const result = await response.json().catch(() => null);
   if (!response.ok || !result?.success) throw new Error(`provider_status_${response.status}`);

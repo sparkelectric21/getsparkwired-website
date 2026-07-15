@@ -17,7 +17,7 @@ Configure these server-side Vercel environment variables for Production and Prev
 
 Do not set `CONTACT_EMAIL_MODE` in production. Placeholder examples are in `.env.example`.
 
-In Cloudflare, onboard the sending domain under Email Service > Email Sending and allow its DNS authentication records to propagate. The implementation follows Cloudflare's REST contract: `POST /client/v4/accounts/{account_id}/email/sending/send` with Bearer authentication and a JSON email builder containing `to`, `from`, `replyTo`, `subject`, `text`, and `html`.
+In Cloudflare, onboard the sending domain under Email Service > Email Sending and allow its DNS authentication records to propagate. The implementation follows Cloudflare's REST contract: `POST /client/v4/accounts/{account_id}/email/sending/send` with Bearer authentication and a JSON email builder containing `to`, `from`, `reply_to`, `subject`, `text`, and `html`.
 
 ## Local testing
 

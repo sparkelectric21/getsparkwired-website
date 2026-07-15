@@ -96,3 +96,25 @@ test("escapes customer content in HTML email", () => {
   assert.match(email.html, /&lt;b&gt;Jane&lt;\/b&gt;/);
   assert.doesNotMatch(email.html, /<b>Jane<\/b>/);
 });
+
+test("uses Cloudflare's REST reply_to property", async () => {
+  delete process.env.CONTACT_EMAIL_MODE;
+  process.env.CLOUDFLARE_ACCOUNT_ID = "test-account";
+  process.env.CLOUDFLARE_EMAIL_API_TOKEN = "test-token";
+  process.env.CONTACT_FROM_EMAIL = "sender@example.com";
+  process.env.CONTACT_TO_EMAIL = "recipient@example.com";
+  const originalFetch = global.fetch;
+  let providerPayload;
+  global.fetch = async (url, options) => {
+    providerPayload = JSON.parse(options.body);
+    return { ok: true, status: 200, json: async () => ({ success: true }) };
+  };
+  try {
+    const res = await invoke(request());
+    assert.equal(res.statusCode, 200);
+    assert.equal(providerPayload.reply_to, "jane@example.com");
+    assert.equal("replyTo" in providerPayload, false);
+  } finally {
+    global.fetch = originalFetch;
+  }
+});
