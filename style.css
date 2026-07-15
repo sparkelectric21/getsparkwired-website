@@ -818,6 +818,14 @@ a.card:focus-visible h3{
   box-shadow:0 16px 44px rgba(6,16,29,.08);
 }
 
+.form-trap{
+  position:absolute;
+  left:-10000px;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+
 .quote-form label{
   display:block;
   margin-bottom:7px;
@@ -860,6 +868,21 @@ a.card:focus-visible h3{
   background:var(--blue-2);
   box-shadow:0 16px 32px rgba(24,116,255,.2);
 }
+
+.quote-form button:disabled{
+  cursor:wait;
+  opacity:.72;
+  transform:none;
+}
+
+.form-status{
+  min-height:1.5em;
+  margin:0;
+  font-weight:750;
+}
+
+.form-status.is-success{color:#126b39;}
+.form-status.is-error{color:#a12828;}
 
 .form-privacy{
   color:var(--muted);

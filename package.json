@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "archive": "node scripts/archive-website.js"
+    "archive": "node scripts/archive-website.js",
+    "test": "node --test tests/contact-api.test.js && playwright test tests/contact-browser.spec.js"
   },
   "devDependencies": {
     "playwright": "^1.61.1"

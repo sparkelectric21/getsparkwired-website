@@ -131,12 +131,16 @@
 
         <form
           class="quote-form reveal"
-          action="https://formsubmit.co/info@getsparkwired.com"
+          action="/api/contact"
           method="POST"
+          data-contact-form
         >
-
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_subject" value="New Spark Electric estimate request">
+          <div class="form-trap" aria-hidden="true">
+            <label for="quote-website">Leave this field empty</label>
+            <input id="quote-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <input type="hidden" name="startedAt" value="">
+          <input type="hidden" name="originatingPage" value="">
 
           <div>
             <label for="quote-name">Name</label>
@@ -145,6 +149,7 @@
               id="quote-name"
               name="name"
               autocomplete="name"
+              maxlength="100"
               required
             >
           </div>
@@ -156,6 +161,7 @@
               id="quote-phone"
               name="phone"
               autocomplete="tel"
+              maxlength="30"
               required
             >
           </div>
@@ -167,6 +173,7 @@
               id="quote-email"
               name="email"
               autocomplete="email"
+              maxlength="254"
               required
             >
           </div>
@@ -178,6 +185,7 @@
               id="quote-city"
               name="city"
               autocomplete="address-level2"
+              maxlength="120"
               placeholder="Fairhope, Daphne, Baldwin County, etc."
             >
           </div>
@@ -185,7 +193,7 @@
           <div>
             <label for="quote-service">Spark Solution</label>
 
-            <select id="quote-service" name="service">
+            <select id="quote-service" name="service" required>
               <option value="">Select a Spark Solution</option>
               <option>Spark Mount</option>
               <option>Spark Connect</option>
@@ -202,12 +210,15 @@
             <textarea
               id="quote-message"
               name="message"
+              maxlength="5000"
               placeholder="Tell us what you want improved and what needs to work better."
               required
             ></textarea>
           </div>
 
-          <button type="submit">Request Estimate</button>
+          <button type="submit" data-submit-button>Request Estimate</button>
+
+          <p class="form-status" data-form-status role="status" aria-live="polite" tabindex="-1"></p>
 
           <p class="form-privacy">
             Your information is used to respond to your estimate request.

@@ -106,3 +106,58 @@ const renderFooterVerse = () => {
 };
 
 renderFooterVerse();
+
+const contactForm = document.querySelector("[data-contact-form]");
+
+if (contactForm) {
+  const submitButton = contactForm.querySelector("[data-submit-button]");
+  const statusMessage = contactForm.querySelector("[data-form-status]");
+  const startedAt = contactForm.elements.startedAt;
+  const originatingPage = contactForm.elements.originatingPage;
+  const successMessage = "Thank you. Your project request has been sent to Spark Electric.";
+  const failureMessage = "We couldn’t send your request right now. Please call or text 251-620-9769, or email info@getsparkwired.com.";
+  let submitting = false;
+
+  const initializeMetadata = () => {
+    startedAt.value = String(Date.now());
+    originatingPage.value = window.location.href;
+  };
+
+  initializeMetadata();
+
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (submitting || !contactForm.reportValidity()) return;
+
+    submitting = true;
+    submitButton.disabled = true;
+    submitButton.setAttribute("aria-busy", "true");
+    submitButton.textContent = "Sending…";
+    statusMessage.textContent = "Sending your project request…";
+    statusMessage.className = "form-status";
+
+    try {
+      const payload = Object.fromEntries(new FormData(contactForm).entries());
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) throw new Error("Contact request failed");
+      contactForm.reset();
+      initializeMetadata();
+      statusMessage.textContent = successMessage;
+      statusMessage.className = "form-status is-success";
+    } catch (error) {
+      statusMessage.textContent = failureMessage;
+      statusMessage.className = "form-status is-error";
+    } finally {
+      submitting = false;
+      submitButton.disabled = false;
+      submitButton.removeAttribute("aria-busy");
+      submitButton.textContent = "Request Estimate";
+      statusMessage.focus();
+    }
+  });
+}
